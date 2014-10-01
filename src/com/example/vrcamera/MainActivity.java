@@ -2,6 +2,7 @@ package com.example.vrcamera;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.PixelFormat;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -34,6 +35,8 @@ public class MainActivity extends Activity implements LocationListener {
         bar.hide();							//¡Ù¬√ActionBar
         tagview		= (TagView)findViewById(R.id.tagView1);
         cView		= (CameraView)findViewById(R.id.cameraView1);
+//        tagview.setZOrderMediaOverlay(true);
+        tagview.getHolder().setFormat(PixelFormat.TRANSLUCENT);
         tagview.setZOrderOnTop(true);
         tLatitude 	= (TextView)findViewById(R.id.textView2);
         tLongitude 	= (TextView)findViewById(R.id.textView4);

@@ -38,7 +38,8 @@ public class TagView extends SurfaceView implements	Runnable{
 			if(!holder.getSurface().isValid())
 				continue;
 			Canvas canvas = holder.lockCanvas();
-			canvas.drawARGB(255,255, 255,0);
+// 			canvas.drawARGB(0,255, 255,255);
+//			canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
 			Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.powercenter);
 			canvas.drawBitmap(bm,0, 0 ,null );
 			Paint paint = new Paint();

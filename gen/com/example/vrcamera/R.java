@@ -27,9 +27,10 @@ public final class R {
     }
     public static final class id {
         public static final int FrameLayout1=0x7f080000;
-        public static final int action_settings=0x7f08000f;
+        public static final int action_settings=0x7f080010;
         public static final int cameraView1=0x7f080001;
-        public static final int tagView1=0x7f08000e;
+        public static final int imageView1=0x7f08000e;
+        public static final int tagView1=0x7f08000f;
         public static final int textView1=0x7f080002;
         public static final int textView10=0x7f08000b;
         public static final int textView11=0x7f08000c;
