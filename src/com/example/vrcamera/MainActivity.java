@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements LocationListener {
 
+	TagView tagview;
 	CameraView cView;
 	LocationManager lManager;
 	TextView tLatitude,tLongitude;			//緯度,經度
@@ -30,7 +32,9 @@ public class MainActivity extends Activity implements LocationListener {
         setContentView(R.layout.activity_main);
         ActionBar bar = getActionBar();
         bar.hide();							//隱藏ActionBar
+        tagview		= (TagView)findViewById(R.id.tagView1);
         cView		= (CameraView)findViewById(R.id.cameraView1);
+        tagview.setZOrderOnTop(true);
         tLatitude 	= (TextView)findViewById(R.id.textView2);
         tLongitude 	= (TextView)findViewById(R.id.textView4);
         tv6 = (TextView)findViewById(R.id.textView6);
@@ -56,6 +60,7 @@ public class MainActivity extends Activity implements LocationListener {
         testPoint4.setLatitude(24.8637871);	//電算中心GPS位置
         testPoint4.setLongitude(120.9903995);
         
+        
     }
     
     @Override
@@ -63,6 +68,8 @@ public class MainActivity extends Activity implements LocationListener {
     	if(bestGPS != null){
     		lManager.requestLocationUpdates(bestGPS, 100, 1, this);
     	}
+    	tagview.resume();
+    	Log.i("ttt", "onResume start");
     	super.onResume();
     	
     }
