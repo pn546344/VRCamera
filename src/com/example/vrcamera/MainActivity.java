@@ -1,5 +1,7 @@
 package com.example.vrcamera;
 
+import java.util.LinkedList;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.PixelFormat;
@@ -27,6 +29,8 @@ public class MainActivity extends Activity implements LocationListener {
 	Location testPoint2 = new Location("");	//GPS測試作標點2
 	Location testPoint3 = new Location("");	//GPS測試作標點3
 	Location testPoint4 = new Location("");	//GPS測試作標點4
+	
+	LinkedList<PointData> list = new LinkedList<PointData>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
