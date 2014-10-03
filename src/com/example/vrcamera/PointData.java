@@ -7,15 +7,15 @@ public class PointData {
 	Bitmap bitmap;
 	double latitude = 0 , longitude = 0;
 	
-	protected void setBitmap(Bitmap bitmap) {
-		this.bitmap = bitmap;
+	protected void setBitmap(Bitmap powercenter) {
+		this.bitmap = powercenter;
 	}
 	
 	protected void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 	
-	protected void setLongitude() {
+	protected void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 	

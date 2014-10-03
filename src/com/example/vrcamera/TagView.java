@@ -7,11 +7,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -23,13 +25,27 @@ public class TagView extends SurfaceView implements	Runnable{
 	Thread t;
 	int y = 0;
 	int width,height;
+	Canvas canvas;
+	Bitmap bm;
 	public TagView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		holder = getHolder();
+		bm = BitmapFactory.decodeResource(getResources(), R.drawable.powercenter);
 	}
 
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// TODO Auto-generated method stub
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			bm =zoomBitmap(bm, 1000, 1000);
+			Log.i("ttt", "zoom");
+			break;
+		}
+		return super.onTouchEvent(event);
+	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -37,10 +53,10 @@ public class TagView extends SurfaceView implements	Runnable{
 		{
 			if(!holder.getSurface().isValid())
 				continue;
-			Canvas canvas = holder.lockCanvas();
+			canvas = holder.lockCanvas();
 // 			canvas.drawARGB(0,255, 255,255);
 //			canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
-			Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.powercenter);
+			
 			canvas.drawBitmap(bm,0, 0 ,null );
 			Paint paint = new Paint();
 			paint.setColor(Color.BLACK);
@@ -69,5 +85,16 @@ public class TagView extends SurfaceView implements	Runnable{
 		t = new Thread(this);
 		t.start();
 		Log.i("ttt", "start TagView");
+	}
+	Bitmap zoomBitmap(Bitmap bitmap, int width,int height){
+		int w = bitmap.getWidth();
+		int h = bitmap.getHeight();
+		Matrix matrix = new Matrix();
+		int scaleWidth = (int) ((float)width/w);
+		int scaleHeight = (int) ((float)height/h);
+		matrix.setScale(scaleWidth, scaleHeight);
+		Bitmap newbmp = Bitmap.createBitmap(bm, 0, 0, w, h, matrix, true);
+		
+		return newbmp;
 	}
 }

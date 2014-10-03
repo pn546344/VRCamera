@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PixelFormat;
 import android.location.Criteria;
 import android.location.Location;
@@ -67,6 +69,31 @@ public class MainActivity extends Activity implements LocationListener {
         testPoint4.setLatitude(24.8637871);	//電算中心GPS位置
         testPoint4.setLongitude(120.9903995);
         
+        //資料儲存
+        PointData p1 = new PointData();
+        PointData p2 = new PointData();
+        PointData p3 = new PointData();
+        PointData p4 = new PointData();
+        Bitmap a = BitmapFactory.decodeResource(getResources(), R.drawable.zongshan);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.libreay);
+        Bitmap c = BitmapFactory.decodeResource(getResources(), R.drawable.hungchao);
+        Bitmap d = BitmapFactory.decodeResource(getResources(), R.drawable.powercenter);
+        p1.setBitmap(a);
+        p1.setLatitude(24.86301);
+        p1.setLongitude(120.9888763);
+        p2.setBitmap(b);
+        p2.setLatitude(24.8625994);
+        p2.setLongitude(120.9896252);
+        p3.setBitmap(c);
+        p3.setLatitude(24.8625921);
+        p3.setLongitude(120.9898982);
+        p4.setBitmap(d);
+        p4.setLatitude(24.8637871);
+        p4.setLongitude(120.9903995);
+        list.add(p1);
+        list.add(p2);
+        list.add(p3);
+        list.add(p4);
         
     }
     
