@@ -12,6 +12,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -95,6 +96,11 @@ public class MainActivity extends Activity implements LocationListener {
         list.add(p3);
         list.add(p4);
         
+        DisplayMetrics metrics = new DisplayMetrics(); 
+
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        Log.i("ttt", "¿Ã¹õ¼e"+metrics.widthPixels);
+        Log.i("ttt", "¿Ã¹õ°ª"+metrics.heightPixels);
     }
     
     @Override
